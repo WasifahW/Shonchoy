@@ -41,3 +41,16 @@ There is no database yet. The "My numbers" editor stores the JSON in the browser
 
 ## Run
 `npm run build && pm2 start ecosystem.config.cjs` → http://localhost:3000
+
+## Financial engine module (`/finance`)
+Expense tracking, debt overview and the automatic budget planner. It lives in its own files, so the insights code above is unchanged.
+
+- **`src/engine.js` → `calculateFinancialPlan(data, options)`**: one pure, commented function that does all the money math. The limits and percentages are in `RULES` at the top.
+  - Expenses: fixed vs variable, grouped by category.
+  - Debts (bank loan / microloan (MFI) / informal / credit purchase): warns when minimum payments reach 30% of income (danger at 40%), flags interest that is unusually high for the loan type (36%+ always danger), gives a payoff timeline at the minimum or any "what if" payment, and warns when a payment never covers interest.
+  - Budget planner: disposable income → debt carve-out → emergency fund / goals / flexible, split 60/25/15 while the emergency fund is under half full, 45/35/20 after that, and 0/60/40 once it is full.
+- `src/finance.tsx`: its routes, mounted in `src/index.tsx` with `app.route('/', finance)`.
+  - `GET /finance`: the screens (Plan, Income, Expenses, Debts, Goals).
+  - `GET /finance/engine.js`: the same engine file, loaded by the browser.
+  - `POST /api/plan?today=YYYY-MM-DD`: send the $honchoy data object, get the plan back.
+- `public/static/finance/app.js` and `style.css`: frontend. Data is saved in `localStorage` under `honchoy_data_v1`.

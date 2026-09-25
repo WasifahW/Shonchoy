@@ -1,0 +1,26 @@
+.card { background:#fff; border-radius:1.25rem; box-shadow:0 4px 18px -6px rgba(244,63,132,.18); border:1px solid #ffe4ee; padding:1.25rem; }
+.card-title { font-weight:600; font-size:1.05rem; color:#be1257; margin-bottom:.75rem; display:flex; align-items:center; gap:.5rem; }
+.tab { padding:.6rem 1rem; border-radius:.9rem .9rem 0 0; font-weight:500; font-size:.9rem; color:#ffe4ee; white-space:nowrap; transition:.15s; }
+.tab:hover { color:#fff; background:rgba(255,255,255,.12); }
+.tab.active { background:#fff1f6; color:#e11d6b; }
+.btn-ghost { background:rgba(255,255,255,.18); padding:.45rem .8rem; border-radius:999px; font-size:.8rem; font-weight:500; }
+.btn-ghost:hover { background:rgba(255,255,255,.3); }
+.btn { background:#f43f84; color:#fff; padding:.6rem 1.1rem; border-radius:.8rem; font-weight:600; font-size:.9rem; transition:.15s; }
+.btn:hover { background:#e11d6b; }
+.btn-soft { background:#ffe4ee; color:#be1257; padding:.35rem .7rem; border-radius:.6rem; font-size:.8rem; font-weight:500; }
+.btn-soft:hover { background:#fecadd; }
+.input { width:100%; border:1.5px solid #fecadd; border-radius:.75rem; padding:.55rem .75rem; font-size:.9rem; background:#fff; outline:none; }
+.input:focus { border-color:#f43f84; box-shadow:0 0 0 3px #ffe4ee; }
+.label { font-size:.75rem; font-weight:500; color:#9d1249; margin-bottom:.2rem; display:block; }
+.pill { display:inline-block; padding:.1rem .55rem; border-radius:999px; font-size:.7rem; font-weight:600; }
+.pill-fixed { background:#fce7f3; color:#9d174d; }
+.pill-variable { background:#fff7ed; color:#c2410c; }
+.bar { height:.6rem; background:#ffe4ee; border-radius:999px; overflow:hidden; }
+.bar > span { display:block; height:100%; background:linear-gradient(90deg,#fb6fa2,#e11d6b); border-radius:999px; transition:width .4s; }
+.flag { border-radius:1rem; padding:.75rem 1rem; font-size:.875rem; display:flex; gap:.6rem; align-items:flex-start; }
+.flag-danger { background:#fee2e2; color:#991b1b; border:1px solid #fecaca; }
+.flag-warning { background:#fef3c7; color:#92400e; border:1px solid #fde68a; }
+.flag-info { background:#ffe4ee; color:#9d1249; }
+.stat { font-size:1.5rem; font-weight:700; color:#e11d6b; }
+.row { display:flex; justify-content:space-between; align-items:center; padding:.55rem 0; border-bottom:1px dashed #ffe4ee; font-size:.9rem; }
+.row:last-child { border-bottom:none; }
