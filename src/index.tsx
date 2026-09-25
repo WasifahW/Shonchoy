@@ -6,11 +6,15 @@ import { sampleData } from './lib/sample'
 import { lessons } from './lib/lessons'
 import { redFlags, checkAnswers, checkText } from './lib/scams'
 import type { ShonchoyData } from './lib/types'
+import finance from './finance'
 
 const app = new Hono()
 
 app.use('/api/*', cors())
 app.use(renderer)
+
+// Financial engine module: /finance, /finance/engine.js, POST /api/plan
+app.route('/', finance)
 
 // ---------- API ----------
 app.get('/api/sample', (c) => c.json(sampleData))
@@ -58,9 +62,14 @@ app.get('/', (c) =>
             <small>Insights &amp; learning</small>
           </div>
         </div>
-        <button id="edit-data-btn" class="ghost-btn" type="button">
-          <i class="fa-solid fa-pen"></i> <span>My numbers</span>
-        </button>
+        <div style="display:flex;gap:8px">
+          <a href="/finance" class="ghost-btn" style="text-decoration:none">
+            <i class="fa-solid fa-wallet"></i> <span>Money plan</span>
+          </a>
+          <button id="edit-data-btn" class="ghost-btn" type="button">
+            <i class="fa-solid fa-pen"></i> <span>My numbers</span>
+          </button>
+        </div>
       </header>
 
       <nav class="tabs" role="tablist" aria-label="Sections">
